@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/kendallpfeifer/cmsc388z/weather_proj/target/debug/build/typenum-63bc3c0282de528f/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/kendallpfeifer/cmsc388z/weather_proj/target/debug/build/typenum-63bc3c0282de528f/out/op.rs

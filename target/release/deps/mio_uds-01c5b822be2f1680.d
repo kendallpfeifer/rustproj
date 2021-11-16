@@ -1,0 +1,11 @@
+/Users/kendallpfeifer/cmsc388z/weather_proj/target/release/deps/mio_uds-01c5b822be2f1680.rmeta: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/datagram.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/listener.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/socket.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/stream.rs
+
+/Users/kendallpfeifer/cmsc388z/weather_proj/target/release/deps/libmio_uds-01c5b822be2f1680.rlib: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/datagram.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/listener.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/socket.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/stream.rs
+
+/Users/kendallpfeifer/cmsc388z/weather_proj/target/release/deps/mio_uds-01c5b822be2f1680.d: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/datagram.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/listener.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/socket.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/stream.rs
+
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/lib.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/datagram.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/listener.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/socket.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-uds-0.6.8/src/stream.rs:

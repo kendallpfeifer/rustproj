@@ -1,0 +1,10 @@
+/Users/kendallpfeifer/cmsc388z/weather_proj/target/debug/deps/native_tls-6667a4655468cf60.rmeta: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/mod.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/security_framework.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/imp/security_framework.rs
+
+/Users/kendallpfeifer/cmsc388z/weather_proj/target/debug/deps/libnative_tls-6667a4655468cf60.rlib: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/mod.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/security_framework.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/imp/security_framework.rs
+
+/Users/kendallpfeifer/cmsc388z/weather_proj/target/debug/deps/native_tls-6667a4655468cf60.d: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/mod.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/security_framework.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/imp/security_framework.rs
+
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/lib.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/mod.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/backend/security_framework.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/native-tls-0.1.5/src/imp/security_framework.rs:
