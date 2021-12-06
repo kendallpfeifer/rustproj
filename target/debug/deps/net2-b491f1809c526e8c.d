@@ -1,0 +1,13 @@
+/Users/kendallpfeifer/cmsc388z/rustproj/target/debug/deps/net2-b491f1809c526e8c.rmeta: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/tcp.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/udp.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/socket.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/ext.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/utils.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/mod.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/impls.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/unix.rs
+
+/Users/kendallpfeifer/cmsc388z/rustproj/target/debug/deps/net2-b491f1809c526e8c.d: /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/lib.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/tcp.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/udp.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/socket.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/ext.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/utils.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/mod.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/impls.rs /Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/unix.rs
+
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/lib.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/tcp.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/udp.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/socket.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/ext.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/utils.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/mod.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/sys/unix/impls.rs:
+/Users/kendallpfeifer/.cargo/registry/src/github.com-1ecc6299db9ec823/net2-0.2.37/src/unix.rs:
