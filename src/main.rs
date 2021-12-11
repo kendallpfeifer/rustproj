@@ -52,20 +52,32 @@ async fn main() {
     if let Some('\r')=country.chars().next_back() {
         country.pop();
     }
-
-    print!("Great thanks! We will generate that report for you whenever you need it :)");
-    
+ 
     // Get the desired alert time from the user
     let mut alert_time=String::new();
-    print!("What time would you like to be reminded: ");
-    let _=stdout().flush();
-    stdin().read_line(&mut alert_time).expect("Did not enter a correct string");
-    if let Some('\n')=alert_time.chars().next_back() {
-        country.pop();
+    let mut min_amt = 0.0;
+    loop {
+        print!("How long from now (in minutes) would you like to be reminded: ");
+        let _=stdout().flush();
+        stdin().read_line(&mut alert_time).expect("Did not enter a correct string");
+        if let Some('\n')=alert_time.chars().next_back() {
+            alert_time.pop();
+        }
+        if let Some('\r')=alert_time.chars().next_back() {
+            alert_time.pop();
+        }
+
+        if matches!(alert_time.parse::<f32>(), Ok(_)){
+            min_amt = alert_time.parse::<f32>().unwrap();
+            break;
+        } else if alert_time == String::default() {
+            break;
+        }
     }
-    if let Some('\r')=alert_time.chars().next_back() {
-        country.pop();
-    }
+
+    print!("Great thanks! We will generate that report when you requested :)\n\n");
+
+
 
     //let cityname = &city;
     let loc = LocationSpecifier::CityAndCountryName{city, country};
@@ -75,11 +87,13 @@ async fn main() {
     let auth_token = "64e0fde8442f7a0b0447899527e67b97";
     let client = Client::new(app_id, auth_token);
     let from = "17258884016";
+
+    let mut child = Command::new("sleep").arg((min_amt*60.0).to_string()).spawn().unwrap();
+    let _result = child.wait().unwrap();
+    
     let body = analyzeweather(weather);
     print!("{}\n", body);
-    //let mut child = Command::new("sleep").arg("100").spawn().unwrap();
-    //let _result = child.wait().unwrap();
-    
+
     //let msg = OutboundMessage::new(from, &number, &body);
     //client.send_message(msg).await; 
 }
@@ -113,30 +127,40 @@ fn analyzeweather(weather: openweather::WeatherReportCurrent) -> String {
 fn gen_rain_report (weather: &openweather::WeatherReportCurrent) -> String {
     let mut rng = rand::thread_rng();
     if weather.rain != None {
-        let amt = weather.rain.as_ref().unwrap().three_h.unwrap() / 3.0;
-        let rain_str = {
-            if amt < 2.5 {
-                match rng.gen_range(0..3) {
-                    0 => format!("It's barely even raining, only {:.0}mm per hour so far\n", amt),
-                    1 => String::from("Only light rain today! Probably won't need an umbrella\n"),
-                    _ => String::from("We have what the experts call a 'Light Drizzle'\n"),
+        print!("{:?}", weather.rain);
+        let three = weather.rain.as_ref().unwrap().three_h;
+        if let Some(amt) = three {
+            let amt = amt / 3.0;
+            let rain_str = {
+                if amt < 2.5 {
+                    match rng.gen_range(0..3) {
+                        0 => format!("It's barely even raining, only {:.0}mm per hour so far\n", amt),
+                        1 => String::from("Only light rain today! Probably won't need an umbrella\n"),
+                        _ => String::from("We have what the experts call a 'Light Drizzle'\n"),
+                    }
+                } else if amt < 7.6 {
+                    match rng.gen_range(0..3) {
+                        0 => format!("Moderate rain today at {:.0}mm per hour\n", amt),
+                        1 => String::from("The rain is picking up a bit, better bring an umbrella\n"),
+                        _ => String::from("Make sure to pack a jacket and an umbrella today because the rain is no joke\n"),
+                    }
+                } else {
+                    match rng.gen_range(0..3) {
+                        0 => format!("Whoa! Crazy heavy rain today clocking in at {:.0}mm per hour!\n", amt),
+                        1 => String::from("Heavy rainfall today! Make sure to close your windows so you dont end up with an indoor swimming pool\n"),
+                        2 => String::from("So much rain today! If it weren't for the puddle jumping potential, I'd recommend staying inside\n"),
+                        _ => String::from("Heavy rain today! or as some call it: 'a real toad-strangler'\n"),
+                    }
                 }
-            } else if amt < 7.6 {
-                match rng.gen_range(0..3) {
-                    0 => format!("Moderate rain today at {:.0}mm per hour\n", amt),
-                    1 => String::from("The rain is picking up a bit, better bring an umbrella\n"),
-                    _ => String::from("Make sure to pack a jacket and an umbrella today because the rain is no joke\n"),
-                }
-            } else {
-                match rng.gen_range(0..3) {
-                    0 => format!("Whoa! Crazy heavy rain today clocking in at {:.0}mm per hour!\n", amt),
-                    1 => String::from("Heavy rainfall today! Make sure to close your windows so you dont end up with an indoor swimming pool\n"),
-                    2 => String::from("So much rain today! If it weren't for the puddle jumping potential, I'd recommend staying inside\n"),
-                    _ => String::from("Heavy rain today! or as some call it: 'a real toad-strangler'\n"),
-                }
+            };
+            rain_str
+        } else {
+            match rng.gen_range(0..2) {
+                0 => String::from("It says it's raining, but I can't see anything\n"),
+                _ => String::from("This \"\"rAiN\"\" today is a joke! \n"),
             }
-        };
-        rain_str
+        }
+        
     } else {
         let no_rain = {
             match rng.gen_range(0..5) {
@@ -224,43 +248,47 @@ fn gen_cloud_report(weather: &openweather::WeatherReportCurrent) -> String {
     String::from(cloud_str)
 }
 
-// fn gen_humidity_report() {
-
-// }
-
 fn gen_snow_report(weather: &openweather::WeatherReportCurrent) -> String {
     let mut rng = rand::thread_rng();
     if weather.snow != None {
-        let amt = weather.snow.as_ref().unwrap().three_h.unwrap() / 3.0;
-        let snow_str = {
-            if amt < 13.0 {
-                match rng.gen_range(0..3) {
-                    0 => format!("It's barely even snowing, only {:.0}mm per hour so far\n", amt),
-                    1 => String::from("This snow wouldn't even be called a dusting right now\n"),
-                    _ => String::from("The snow is hardly falling'\n"),
+        let three = weather.snow.as_ref().unwrap().three_h;
+        if let Some(amt) = three {
+            let amt = amt / 3.0;
+            let snow_str = {
+                if amt < 13.0 {
+                    match rng.gen_range(0..3) {
+                        0 => format!("It's barely even snowing, only {:.0}mm per hour so far\n", amt),
+                        1 => String::from("This snow wouldn't even be called a dusting right now\n"),
+                        _ => String::from("The snow is hardly falling'\n"),
+                    }
+                } else if amt < 25.0 {
+                    match rng.gen_range(0..3) {
+                        0 => format!("Moderate snow today at {:.0}mm (just under an inch) per hour\n", amt),
+                        1 => String::from("The snow is picking up a bit, better bring a nice coat\n"),
+                        _ => String::from("Do you have your hat and scarf handy? because the snow today is picking up\n"),
+                    }
+                } else if amt < 50.0 {
+                    match rng.gen_range(0..3) {
+                        0 => format!("Wow lots of fresh snow today at {:.0}mm (almost 2 inches) per hour!!\n", amt),
+                        1 => String::from("You do not want to be caught in this heavy snow without a hat and gloves!\n"),
+                        _ => String::from("Make sure to pack a jacket and an wear boots today because the heavy snow is no joke\n"),
+                    }
+                } else {
+                    match rng.gen_range(0..3) {
+                        0 => format!("Whoa! Crazy heavy snow today clocking in at {:.0}mm per hour!\n", amt),
+                        1 => String::from("This snow is almost a blizzard! I'd stay home if I were you\n"),
+                        2 => String::from("Be safe out there today, heavy snow is coming your way!!\n"),
+                        _ => String::from("This snow is looking good for a snow day! Fingers crossed\n"),
+                    }
                 }
-            } else if amt < 25.0 {
-                match rng.gen_range(0..3) {
-                    0 => format!("Moderate snow today at {:.0}mm (just under an inch) per hour\n", amt),
-                    1 => String::from("The snow is picking up a bit, better bring a nice coat\n"),
-                    _ => String::from("Do you have your hat and scarf handy? because the snow today is picking up\n"),
-                }
-            } else if amt < 50.0 {
-                match rng.gen_range(0..3) {
-                    0 => format!("Wow lots of fresh snow today at {:.0}mm (almost 2 inches) per hour!!\n", amt),
-                    1 => String::from("You do not want to be caught in this heavy snow without a hat and gloves!\n"),
-                    _ => String::from("Make sure to pack a jacket and an wear boots today because the heavy snow is no joke\n"),
-                }
-             } else {
-                match rng.gen_range(0..3) {
-                    0 => format!("Whoa! Crazy heavy snow today clocking in at {:.0}mm per hour!\n", amt),
-                    1 => String::from("This snow is almost a blizzard! I'd stay home if I were you\n"),
-                    2 => String::from("Be safe out there today, heavy snow is coming your way!!\n"),
-                    _ => String::from("This snow is looking good for a snow day! Fingers crossed\n"),
-                }
+            };
+            snow_str
+        } else {
+            match rng.gen_range(0..2) {
+                0 => String::from("It says it's snowing, but I can't see anything\n"),
+                _ => String::from("This \"\"sNoW\"\" today is a joke!\n"),
             }
-        };
-        snow_str
+        }
     } else {
         let no_snow = {
             if convert_to_f(weather.main.temp_min) <= 40.0 {
